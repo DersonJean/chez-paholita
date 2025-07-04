@@ -1,0 +1,269 @@
+:root {
+    --green-50:  #e9fdf2;   /* fundo da página */
+    --green-700: #03623f;   /* hover dos links */
+    --green-900: #004e33;   /* barra superior */
+    --text-dk:   #253344;
+    --text-lt:   #ffffff;
+    --gray-50:   #fafafa;
+    --gray-200:  #e4e8ec;
+    --radius: .9rem;
+    --shadow: 0 8px 18px rgb(0 0 0 / .06);
+    --transition: all .3s ease;
+    --maxw: 1200px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font: 16px/1.7 "Segoe UI", sans-serif;
+    background: var(--green-50);
+    color: var(--text-dk);
+  }
+  
+  /* ---------- Top-bar ---------- */
+  .top-bar {
+    background: var(--green-900);
+    color: var(--text-lt);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .top-bar .wrapper {
+    max-width: var(--maxw);
+    margin: auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+  
+  .logo {
+    height: 54px;
+  }
+  
+  .site-name {
+    font-size: 1.9rem;
+    font-weight: 600;
+  }
+  
+  /* ---------- Menu ---------- */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-lt);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  
+  .main-menu {
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+  
+  .main-menu a {
+    color: var(--text-lt);
+    text-decoration: none;
+    padding: .55rem 1rem;
+    border-radius: var(--radius);
+    transition: background .25s;
+  }
+  
+  .main-menu a:hover {
+    background: var(--green-700);
+  }
+
+  /* coloque logo DEPOIS das regras .menu-toggle existentes */
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: none;              /* continua =none fora do @media */
+    background: var(--green-700);
+    border: 0;
+    border-radius: var(--radius);
+    color: #fff;
+    font-size: 26px;            /* ícone maior */
+    line-height: 1;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle { display: flex; align-items: center; justify-content: center; }
+  }
+  
+  /* ---------- Mobile nav ---------- */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+    .main-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      background: var(--green-900);
+      margin-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .main-menu a {
+      padding: 1rem 1.5rem;
+      border-radius: 0;
+    }
+    .main-menu.open {
+      display: flex;
+    }
+  }
+  
+  /* ---------- Estruturas utilitárias ---------- */
+  .container {
+    max-width: var(--maxw);
+    margin: auto;
+    padding: 2.2rem 1.5rem;
+  }
+  
+  .grid-2,
+  .grid-3 {
+    display: grid;
+    gap: 2.2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* ---------- Imagens ---------- */
+  img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform .35s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.04);
+  }
+  
+  /* ---------- Tipografia ---------- */
+  h1,
+  h2,
+  h3 {
+    color: var(--text-dk);
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.7rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  /* ---------- Cartões ---------- */
+  .card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.7rem 1.4rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgb(0 0 0 / .12);
+  }
+  
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--green-900);
+    color: var(--text-lt);
+    text-align: center;
+    padding: 1.6rem .8rem;
+    font-size: .95rem;
+    margin-top: 4rem;
+  }
+  
+  /* ---------- Formulário de contato ---------- */
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* duas colunas */
+    gap: 1.3rem;
+    background: var(--gray-50);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+  }
+  
+  .contact-form .full {
+    grid-column: 1 / -1;
+  }
+  
+  .contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .4rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: .75rem 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--green-700);
+  }
+  
+  .contact-form button {
+    background: #ff914d;
+    color: #fff;
+    border: 0;
+    padding: .9rem 1.6rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background .25s;
+    justify-self: start;
+  }
+  
+  .contact-form button:hover {
+    background: #ff7b23;
+  }
+  
+  @media (max-width: 500px) {
+    .contact-form {
+      grid-template-columns: 1fr;
+    }
+  }
+  
